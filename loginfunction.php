@@ -27,7 +27,7 @@ if (isset($_POST['username']) && isset($_POST['password'])){
         }else{
             
             $_SESSION['USER'] = $username;
-            header("Location: index.html");
+            header("Location: ?view=dashboard");
             exit();
         }
     
@@ -42,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 $result = $conn->query($query);
 
 if($result->num_rows == 1){
-  header("Location: index.html");
+  header("Location: ?view=dashboard");
   exit();
 }
 else{

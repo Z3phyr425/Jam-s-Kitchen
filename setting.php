@@ -1,35 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head >
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Setting</title>
-    <link rel="stylesheet" href="setting.css">
-</head>
-<body>
-    <?php
-        include "header.php";
-    ?>
-    
-    <div class="container">
-        <h1>Setting</h1>
-        <div class="con">
-            <div class="content">
-                <h2>LOG OUT</h2>
-               
-                    <form action="logout.php" id="productContainer">
-                <input type="submit" value="Log Out">
-                </form>
-              
-                
-            </div>
-         
-        </div>
-    </div>
-    <footer>
-        
-    </footer>
+<?php
+    if(isset($_SESSION['username'])){
 
-   
-</body>
-</html>
+    }else{
+        header('location: ./');
+    }
+?>
+
+<div class="container">
+    <h1>Setting</h1>
+    <div class="con">
+        <div class="content">
+            <h2>LOG OUT</h2>
+           
+            <form action="" id="productContainer" method="post">
+                <button type="submit" name="logout">Log Out</button>
+                <?php
+                    if(isset($_POST['logout'])){
+                        session_destroy();
+                        header('location: ./');
+                    }
+                ?>
+            </form>
+            
+        </div>
+     
+    </div>
+</div>

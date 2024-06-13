@@ -1,3 +1,11 @@
+<?php
+    if(isset($_SESSION['username'])){
+
+    }else{
+        header('location: ./');
+    }
+?>
+
 <div class="container">
         <h1>Inventory</h1>
         <div class="con">
