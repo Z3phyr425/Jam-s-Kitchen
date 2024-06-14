@@ -36,6 +36,9 @@
             <div id="checkBoxContainer">
                 <input type="checkbox" id="checkBox"><span>Show Password</span>
             </div>
+            <div>
+                <a style="margin-left: 12%;text-decoration: none" href="register.php">Don't have an account? Click here</a>
+            </div>
             <div id="btnContainer">
                 <input type="submit" name="login" value="Login" class="btn">
             </div>
@@ -43,17 +46,23 @@
                 if(isset($_POST['login'])){
                     $username = $_POST['username'];
                     $password = $_POST['password'];
+                    
                     $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 
                     $result = mysqli_query($conn, $sql);
+
                     if(mysqli_num_rows($result)){
                         $_SESSION['username'] = $username;
                         header('location: ./?view=dashboard');
+                    }else{
+                        echo "<script>alert('Invalid Credentials')</script>";
                     }
                 }
             ?>
         </form>
     </div>
+    
+    
 
     <script src="login.js"></script>
 </body>

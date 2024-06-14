@@ -16,6 +16,8 @@
                 <h3>User Details</h3>
             </div>
             <div class="contentBody">
+                
+                <form action="" method="post">
                 <?php
                     $sql = "SELECT * FROM users WHERE username='$username'";
                     $result = mysqli_query($conn, $sql);
@@ -35,6 +37,15 @@
                         echo "01110100 01100001 01110010 01110101 01100010 00100000 00101101 01010110 01100001 01101101 01110000 01111001 01111001 01111001 00100000 00110001 00110000 00111010 00110101 00111001 01110000 01101101 00100000 00110001 00110011 00101111 00110000 00110110 00101111 00110010 00110000 00110010 00110100";
                     }
                 ?>
+                    
+                <button type="submit" name="logout" id="logout" class="btn">Logout</button>
+                <?php
+                if (isset($_POST['logout'])) {
+                    session_destroy();
+                    header('location: ./');
+                }
+                ?>
+                </form>
             </div>
             <div class="contentFooter">
                 <?php
@@ -85,6 +96,8 @@
                         }
                     }
                 }
+
+                
             ?>
             </form>
         </div>
